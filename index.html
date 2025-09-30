@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Prediction Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Career Prediction Analysis</h1>
+            <p>Complete your academic profile to receive personalized career recommendations</p>
+        </div>
+        
+        <form id="myForm" action="/predict" method="POST" target="_blank">
+            <div class="form-content">
+                <div class="container">
+                    <!-- Academic Inputs -->
+                    <div class="input-group">
+                        <label for="Acedamic percentage in Operating Systems">Academic Percentage in Operating Systems:</label>
+                        <input type="number" id="Acedamic percentage in Operating Systems" name="Acedamic percentage in Operating Systems" min="0" max="100" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="percentage in Algorithms">Percentage in Algorithms:</label>
+                        <input type="number" id="percentage in Algorithms" name="percentage in Algorithms" min="0" max="100" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="Percentage in Programming Concepts">Percentage in Programming Concepts:</label>
+                        <input type="number" id="Percentage in Programming Concepts" name="Percentage in Programming Concepts" min="0" max="100" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="Percentage in Software Engineering">Percentage in Software Engineering:</label>
+                        <input type="number" id="Percentage in Software Engineering" name="Percentage in Software Engineering" min="0" max="100" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="Percentage in Computer Networks">Percentage in Computer Percentage in Computer Networks:</label>
+                        <input type="number" id="Percentage in Computer Networks" name="Percentage in Computer Networks" min="0" max="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Percentage in Electronics Subjects">Percentage in Percentage in Electronics Subjects  Subjects:</label>
+                        <input type="number" id="Percentage in Electronics Subjects" name="Percentage in Electronics Subjects" min="0" max="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Percentage in Computer Architecture">Percentage in Computer Percentage in Computer Architecture:</label>
+                        <input type="number" id="Percentage in Computer Architecture" name="Percentage in Computer Architecture" min="0" max="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Percentage in Mathematics">Percentage in Percentage in Mathematics:</label>
+                        <input type="number" id="Percentage in Mathematics" name="Percentage in Mathematics" min="0" max="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Percentage in Communication skills">Percentage in Percentage in Communication skills Skills:</label>
+                        <input type="number" id="Percentage in Communication skills" name="Percentage in Communication skills" min="0" max="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Hours working per day">Hours Working Per Day:</label>
+                        <input type="number" id="Hours working per day" name="Hours working per day" min="0" max="24" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="hackathons">hackathons Attended:</label>
+                        <input type="number" id="hackathons" name="hackathons" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="coding skills rating">Coding Skills Rating (1-10):</label>
+                        <input type="number" id="coding skills rating" name="coding skills rating" min="1" max="10" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="public speaking points">Public Speaking Points:</label>
+                        <input type="number" id="public speaking points" name="public speaking points" min="1" max="10" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="can work long time before system?">Can Work Long Before System?</label>
+                        <select id="can work long time before system?" name="can work long time before system?" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="self-learning capability?">Self-learning Capability?</label>
+                        <select id="self-learning capability?" name="self-learning capability?" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Extra-courses did">Extra Courses Taken?</label>
+                        <select id="Extra-courses did" name="Extra-courses did" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="certifications">certifications:</label>
+                        <select id="certifications" name="certifications">
+                            <option value="shell programming">Shell Programming</option>
+                            <option value="machine learning">Machine Learning</option>
+                            <option value="app development">App Development</option>
+                            <option value="python">Python</option>
+                            <option value="r programming">R Programming</option>
+                            <option value="information security">Information Security</option>
+                            <option value="hadoop">Hadoop</option>
+                            <option value="distro making">Distro Making</option>
+                            <option value="full stack">Full Stack</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="workshops">Workshops Attended:</label>
+                        <select id="workshops" name="workshops">
+                            <option value="web technologies">Web Technologies</option>
+                            <option value="hacking">Hacking</option>
+                            <option value="system designing">System Designing</option>
+                            <option value="cloud computing">Cloud Computing</option>
+                            <option value="game development">Game Development</option>
+                            <option value="data science">Data Science</option>
+                            <option value="testing">Testing</option>
+                            <option value="database security">Database Security</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="reading and writing skills">Reading and Writing Rating:</label>
+                        <select id="reading and writing skills" name="reading and writing skills" required>
+                            <option value="excellent">Excellent</option>
+                            <option value="medium">Medium</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="memory capability score">Memory Rating:</label>
+                        <select id="memory capability score" name="memory capability score" required>
+                            <option value="excellent">Excellent</option>
+                            <option value="medium">Medium</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="Interested subjects">Interested Subjects:</label>
+                        <select id="Interested subjects" name="Interested subjects">
+                            <option value="cloud_computing">Cloud Computing</option>
+                            <option value="Percentage in Computer Networks">Percentage in Computer Networks</option>
+                            <option value="hacking">Hacking</option>
+                            <option value="computer_Percentage in Computer Architecture">Computer Percentage in Computer Architecture</option>
+                            <option value="programming">Programming</option>
+                            <option value="parallel_computing">Parallel Computing</option>
+                            <option value="iot">IOT</option>
+                            <option value="data_engineering">Data Engineering</option>
+                            <option value="Percentage in Software Engineering">Software Engineering</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="interested career area">Interested Career Area:</label>
+                        <select id="interested career area" name="interested career area">
+                            <option value="system developer">System Developer</option>
+                            <option value="business process analyst">Business Process Analyst</option>
+                            <option value="developer">Developer</option>
+                            <option value="testing">Testing</option>
+                            <option value="security">Security</option>
+                            <option value="cloud computing">Cloud Computing</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Job/Higher Studies?">Job or Higher Studies?</label>
+                        <select id="Job/Higher Studies?" name="Job/Higher Studies?" required>
+                            <option value="Job">Job</option>
+                            <option value="Higher Studies">Higher Studies</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Type of company want to settle in?">Type of Company Want to Settle In?</label>
+                        <select id="Type of company want to settle in?" name="Type of company want to settle in?">
+                            <option value="Web Services">Web Services</option>
+                            <option value="SAaS services">SAaS Services</option>
+                            <option value="Sales and Marketing">Sales and Marketing</option>
+                            <option value="Testing and Maintenance Services">Testing and Maintenance Services</option>
+                            <option value="Product Development">Product Development</option>
+                            <option value="BPA">BPA</option>
+                            <option value="Service Based">Service Based</option>
+                            <option value="Cloud Services">Cloud Services</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Product Based">Product Based</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Management or Technical">Management or Technical?</label>
+                        <select id="Management or Technical" name="Management or Technical">
+                            <option value="Management">Management</option>
+                            <option value="Technical">Technical</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="hard/smart worker">Hard/Smart Worker:</label>
+                        <select id="hard/smart worker" name="hard/smart worker">
+                            <option value="Hard Worker">Hard Worker</option>
+                            <option value="Smart Worker">Smart Worker</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="worked in teams ever?">Have you worked in teams before?</label>
+                        <select id="worked in teams ever?" name="worked in teams ever?">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="Introvert">Introvert?</label>
+                        <select id="Introvert" name="Introvert">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>                    
+                
+                    <button type="submit">Generate Career Prediction</button>
+                    <!-- <button id="downloadPdfBtn" type="button" style="display: none;" onclick="downloadPDF()">Download PDF</button> -->
+                    <button type="reset" onclick="clearPrediction()">Clear Form</button>
+
+                </div>
+            </div>
+        </form>
+        
+        {% if prediction_text %}
+        <div class="prediction">
+            <p>{{ prediction_text }}</p>
+        </div>
+        <div class="pdf-link">
+            <a href="/generate_pdf" class="btn">📄 Download PDF</a>
+        </div>
+        {% endif %}
+    </div>
+<!-- 
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>  -->
+</body>
+</html>
